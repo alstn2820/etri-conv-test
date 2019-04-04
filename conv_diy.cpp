@@ -21,9 +21,26 @@ int your_conv( cv::Mat src,
     // src.ptr<unsigned char>(i)[ calculate INDEX ]
 
     // MAKE YOUR OWN CONVOLUTION PROCESS
+	
+		
+  for(src.rows=0; src.rows<dst->h ; src.rows++)				// 메트 세로
+	{for(src.cols=0; src.cols<dst->w ;src.cols++)				// 메트 가로
+		{	
+		float result = 0.0f;		
+		for(kernel.rows=0; kernel.rows<dst->h;kernel.rows++)  		// 필터 세로
+			{for(kernel.cols=0; kernel.cols<dst->w; kernel.cols++)  // 필터 가로
+				{ int w = src.cols * conv_layer -> stride[0] - conv_layer ->padding[0] + kernel_cols;
+				  int h = src.rows * conv_layer -> stride[1] - conv_later ->padding[2] + kernel.rows;
+					if(w<0 || w>=frame->w)
+					continue;
+					if(h<0 || h>=frame->h)
+					continue;
+
+					float 
+
 
     // if success
-    return 0
+    return 0;
 
     // if fail - in the case of wrong parameters...
     // return -1
